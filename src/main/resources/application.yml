@@ -1,11 +1,16 @@
 spring:
-    cloud:
-        gateway:
-            routes:
-            - id: msvc-products
-              uri: lb://msvc-products
-              predicates:
-              - Path=/api/products/**
-              filters:
-              - StripPrefix=2
-              
+  cloud:
+    gateway:
+      routes:
+        - id: msvc-products
+          uri: lb://msvc-products
+          predicates:
+            - Path=/api/products/**
+          filters:
+            - StripPrefix=2
+        - id: msvc-orders
+          uri: lb://msvc-orders
+          predicates:
+            - Path=/api/orders/**
+          filters:
+            - StripPrefix=2

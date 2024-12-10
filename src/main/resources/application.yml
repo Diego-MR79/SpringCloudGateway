@@ -27,3 +27,9 @@ spring:
             - Path=/api/orders/**
           filters:
             - StripPrefix=2
+        - id: msvc-users
+          uri: lb://msvc-users
+          predicates:
+            - Path=/api/users/**
+          filters:
+            - StripPrefix=2
